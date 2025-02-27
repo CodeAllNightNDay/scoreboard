@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scoreboard</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="scoreboard.css" />
+  </head>
+  <body>
+    <div class="scoreboard">
+      <!-- HOME TEAM PANEL -->
+      <div class="team-panel">
+        <h2 class="team-name">HOME</h2>
+        <div class="score-display" id="home-score-display">0</div>
+        <div class="score-controls">
+          <!-- Onclick triggers JavaScript functions with appropriate values -->
+          <button class="score-btn" onclick="incrementHome(1)">+1</button>
+          <button class="score-btn" onclick="incrementHome(2)">+2</button>
+          <button class="score-btn" onclick="incrementHome(3)">+3</button>
+        </div>
+      </div>
+
+      <!-- GUEST TEAM PANEL -->
+      <div class="team-panel">
+        <h2 class="team-name">GUEST</h2>
+        <div class="score-display" id="guest-score-display">0</div>
+        <div class="score-controls">
+          <button class="score-btn" onclick="incrementGuest(1)">+1</button>
+          <button class="score-btn" onclick="incrementGuest(2)">+2</button>
+          <button class="score-btn" onclick="incrementGuest(3)">+3</button>
+        </div>
+      </div>
+    </div>
+    <div><button class="reset-btn" onclick="resetScores()">Reset</button></div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="scoreboard.js"></script>
+  </body>
+</html>
