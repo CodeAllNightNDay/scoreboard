@@ -21,6 +21,13 @@ body {
   min-height: 50vh;
 }
 
+.scoreboard-title {
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
 /* Each team panel */
 .team-panel {
   display: flex;
