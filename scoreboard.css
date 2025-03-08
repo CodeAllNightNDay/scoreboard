@@ -1,17 +1,36 @@
-/* Basic reset and body styling */
+/* ------------------ CSS Variables (Color Palette) ------------------
+   Defining color variables here makes it easy to change the theme later
+   and keeps the code more maintainable and readable. */
+:root {
+  --color-dark-navy: #172a49;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-pinkish: #ff3366;
+  --color-lighter-navy: #2e3f63;
+  --color-lighter-navy-hover: #3b4e75;
+  --color-gray-text: #333333;
+  --color-darker-pink: #b11742;
+}
+
+/* Basic reset removes default margins/padding from all elements 
+     and ensures consistent box-sizing across the site. */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* The body gets a specific font, background color, and text color, which are used globally. 
+     We now use CSS variables for the background and font colors. */
 body {
   font-family: Arial, sans-serif;
-  background-color: #172a49; /* Dark navy background */
-  color: #fff;
+  background-color: var(--color-dark-navy);
+  color: var(--color-white);
 }
 
-/* Main scoreboard container */
+/* Main scoreboard container styling:
+     - Uses flex to arrange the team panels side by side.
+     - Centers them on the page and adds some spacing. */
 .scoreboard {
   display: flex;
   align-items: center;
@@ -21,6 +40,7 @@ body {
   min-height: 50vh;
 }
 
+/* Large title at the top of the scoreboard page. */
 .scoreboard-title {
   font-size: 3rem;
   margin-top: 2rem;
@@ -28,7 +48,16 @@ body {
   text-align: center;
 }
 
-/* Each team panel */
+/* Subtitle text under the main title, slightly smaller. */
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* A panel represents either the Home or Guest team:
+     - Arranged in a column.
+     - Centered both horizontally and text-wise. */
 .team-panel {
   display: flex;
   flex-direction: column;
@@ -36,18 +65,21 @@ body {
   text-align: center;
 }
 
-/* Team name heading */
+/* Team name header. */
 .team-name {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-/* Score display box */
+/* The score display box:
+     - Shows the current score in a large, bold font.
+     - The background and text color are distinct so it stands out.
+     - Uses CSS variables for easy updates. */
 .score-display {
   width: 120px;
   height: 100px;
-  background-color: #000;
-  color: #ff3366; /* Pinkish "7-seg" color */
+  background-color: var(--color-black);
+  color: var(--color-pinkish);
   font-size: 4rem;
   font-weight: bold;
   display: flex;
@@ -55,18 +87,31 @@ body {
   justify-content: center;
   margin-bottom: 1.5rem;
   border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Controls container */
+/* Hover effect to highlight the score box:
+     - Swaps to pinkish background and white text.
+     - Slight transparency on hover. */
+.score-display:hover {
+  background-color: var(--color-pinkish);
+  color: var(--color-white);
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* Container for the three increment buttons (like +1, +2, +3). */
 .score-controls {
   display: flex;
   gap: 1rem;
 }
 
-/* Score increment buttons */
+/* The increment buttons:
+     - Use a navy background with white text.
+     - Slightly grow on hover. */
 .score-btn {
-  background-color: #2e3f63;
-  color: #fff;
+  background-color: var(--color-lighter-navy);
+  color: var(--color-white);
   border: none;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -76,13 +121,15 @@ body {
 }
 
 .score-btn:hover {
-  background-color: #3b4e75;
+  background-color: var(--color-lighter-navy-hover);
+  transform: scale(1.05);
 }
 
-/* Reset button */
+/* The Reset button stands out with a different background color.
+     It also increases in size slightly when hovered over. */
 .reset-btn {
-  background-color: #ff3366;
-  color: #333;
+  background-color: var(--color-pinkish);
+  color: var(--color-gray-text);
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
@@ -95,7 +142,7 @@ body {
 }
 
 .reset-btn:hover {
-  background-color: #b11742;
-  color: #fff;
+  background-color: var(--color-darker-pink);
+  color: var(--color-white);
   transform: scale(1.05);
 }
